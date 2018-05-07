@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2, ElementRef, 
+        ViewChild, ViewContainerRef, ComponentFactoryResolver,
+        ComponentRef, ComponentFactory, OnDestroy } from '@angular/core';
+        
+import {DynamicCompComponent} from './component/dynamic-comp/dynamic-comp.component';
 
 @Component({
   selector: 'app-root',
@@ -6,20 +10,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
-
-  myArray: Array<number> = [1,2,3];
-
-  getMyName(): string {
-    return 'Tomer Gueta';
-  }
-
-  addElements(): void {
-    this.myArray.push(Math.random() * 20);
-  }
-
-  subElements(): void {
-    //this.myArray.shift();
-    this.myArray.splice(0,5);
+  constructor(){
+    localStorage.setItem('test','12345678');
+    //localStorage.removeItem('test');
   }
 }
